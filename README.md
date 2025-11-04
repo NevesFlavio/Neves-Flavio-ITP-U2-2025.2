@@ -1,4 +1,4 @@
-# Introdução às Técnicas de Programação - Unidade 1
+# Introdução às Técnicas de Programação - Unidade 2
 
 - **Aluno**: Flávio Henrique de Oliveira Neves
 - **Matrícula**: 20250052826
@@ -53,6 +53,11 @@
 - ✅ Problema 2: Álbum de figurinhas
 - ✅ Problema 3: A construção da ponte
 - ✅ Problema 4: Em busca do tesouro perdido
+- ### Semana 7 - Strings:
+- ### Semana 8 - Repetições Aninhadas:
+- ### Semana 9 - Matrizes:
+- ### Semana 10 - Ponteiros e Alocação.
+
 ## 🎯 Principais Aprendizados
 A noção da utilização de funções para cada 'demanda', a forma de implementação das condicionais para possibilitar escolhas por parte do usuário, a organização do código de maneira a facilitar futuras alterações e a construção de um projeto que se baseia no alicerce organizadamente bem elaborado.
 ## 🔧 Ambiente de Desenvolvimento
