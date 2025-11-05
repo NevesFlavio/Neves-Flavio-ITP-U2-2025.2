@@ -35,7 +35,7 @@ void colocarMinas(int lin, int col, int minas[lin][col]) {                //Fun�
     }
 }
 
-void gerarMinas(int lin, int col, int minas[lin][col], int qtd) {           //Função de gerar as minas - em construção
+void gerarMinas(int lin, int col, int minas[lin][col], int qtd) {           //Função de gerar as minas usando 'srand' para gerá-los de forma aleatória
     srand(time(NULL));                                                      
     int colocadas = 0;  
 
@@ -48,6 +48,19 @@ void gerarMinas(int lin, int col, int minas[lin][col], int qtd) {           //Fu
         }
     }
 }
+
+void lerJogada(int *linha, int *coluna, int linMax, int colMax) {           //Função de ler a jogada do usuário
+    do {
+        printf("Digite o numero da linha: ");
+        scanf("%d", linha);
+        printf("Digite o numero da coluna: ");
+        scanf("%d", coluna);
+
+        if (*linha < 1 || *linha > linMax || *coluna < 1 || *coluna > colMax) {
+            printf("Jogada invalida. Tente novamente.\n");
+        }
+    } while (*linha < 1 || *linha > linMax || *coluna < 1 || *coluna > colMax);
+}                                 
 
 int main() {
     
@@ -87,12 +100,13 @@ do                                                                          //Es
     
     char mapa[lin][col];
     int minas[lin][col];
-    int qtdMinas = (opcao == 1 ? 10 : (opcao == 2 ? 40 : 99));
+    int qtdMinas = (opcao == 1 ? 10 : (opcao == 2 ? 40 : 99));               //Quantidade de minas para cada dificuldade - 10, 40, 99.
 
     inicializarJogo(lin, col, mapa);
     colocarMinas(lin, col, minas);
     gerarMinas(lin, col, minas, qtdMinas);                                  //Chamada da função de gerar minas, 10;
     mostrarJogo(lin, col, mapa);
-    
+
     return 0;
+    
 }
