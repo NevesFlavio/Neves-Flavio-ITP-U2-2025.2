@@ -100,12 +100,14 @@ do                                                                          //Es
     
     char mapa[lin][col];
     int minas[lin][col];
-    int qtdMinas = (opcao == 1 ? 10 : (opcao == 2 ? 40 : 99));               //Quantidade de minas para cada dificuldade - 10, 40, 99.
+    int qtdMinas = (opcao == 1 ? 10 : (opcao == 2 ? 40 : 99));
+    int linhaJog, colunaJog;                                                      //Quantidade de minas para cada dificuldade - 10, 40, 99.
 
     inicializarJogo(lin, col, mapa);
     colocarMinas(lin, col, minas);
     gerarMinas(lin, col, minas, qtdMinas);                                  //Chamada da função de gerar minas, 10;
     mostrarJogo(lin, col, mapa);
+    lerJogada(&linhaJog, &colunaJog, lin, col);
 
     return 0;
     
