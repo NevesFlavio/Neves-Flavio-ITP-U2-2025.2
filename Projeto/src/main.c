@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 
 void inicializarJogo(int lin, int col, char mapa[lin][col]) {               //Função de inicializar o mapa
@@ -29,6 +31,20 @@ void colocarMinas(int lin, int col, int minas[lin][col]) {                //Fun�
     for (int i = 1; i < lin; i++) {
         for (int j = 1; j < col; j++) {
             minas[i][j] = 0; 
+        }
+    }
+}
+
+void gerarMinas(int lin, int col, int minas[lin][col], int qtd) {           //Função de gerar as minas - em construção
+    srand(time(NULL));                                                      
+    int colocadas = 0;  
+
+    while (colocadas < qtd) {
+        int x = rand() % (lin-1) + 1;
+        int y = rand() % (col-1) + 1;
+        if (minas[x][y] == 0) {
+            minas[x][y] = 1;
+            colocadas++;
         }
     }
 }
