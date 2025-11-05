@@ -50,8 +50,10 @@ void gerarMinas(int lin, int col, int minas[lin][col], int qtd) {           //Fu
 }
 
 int main() {
+    
     int lin, col;
     int opcao;
+    
 
 do                                                                          //Estrutura para o menu de dificuldade
     {
@@ -66,13 +68,16 @@ do                                                                          //Es
         if (opcao == 1) {                                                   //Tamanho do básico 9x9
         lin = 10;
         col = 10;
+       
     } else if (opcao == 2) {                                                //Tamanho do intermediário 16x16
         lin = 17;
         col = 17;
+        
     } else if (opcao == 3)                                                  //Tamanho do avançado 24x24
     {
         lin = 25;
         col = 25;
+   
     } else {
         printf("Opcao invalida. Escolha novamente:\n");
        
@@ -80,15 +85,14 @@ do                                                                          //Es
     
     } while (opcao != 1 && opcao != 2 && opcao != 3);                       //Tratamento para só continuar se escolher uma das opções corretas
     
-    
-
-  
     char mapa[lin][col];
     int minas[lin][col];
+    int qtdMinas = (opcao == 1 ? 10 : (opcao == 2 ? 40 : 99));
 
     inicializarJogo(lin, col, mapa);
     colocarMinas(lin, col, minas);
+    gerarMinas(lin, col, minas, qtdMinas);                                  //Chamada da função de gerar minas, 10;
     mostrarJogo(lin, col, mapa);
-
+    
     return 0;
 }
