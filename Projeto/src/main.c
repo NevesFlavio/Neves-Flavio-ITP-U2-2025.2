@@ -61,6 +61,31 @@ int contarMinasAdjacentes(int i, int j, int lin, int col, int minas[lin][col]) {
     return cont;
 }
 
+int revelarCelula(int i, int j, int lin, int col, char mapa[lin][col], int minas[lin][col]) {
+    if (i < 1 || i >= lin || j < 1 || j >= col) {
+        return 0;
+    }
+    if (mapa[i][j] != '-') {
+        return 0;
+    }
+    if (minas[i][j] == 1) {
+        mapa[i][j] = '*';
+        return;
+    }
+    int adj = contarMinasAdjacentes(i, j, lin, col, minas);
+    mapa[i][j] = adj + '0';
+
+    if (adj == 0) {
+        for (int x = i - 1; x <= i + 1; x++) {
+            for (int y = j - 1; y <= j + 1; y++) {
+                if (x != i || y != j) {
+                    revelarCelula(x, y, lin, col, mapa, minas);
+                }
+            }
+        }
+    }
+}
+
 void lerJogada(int *linha, int *coluna, int linMax, int colMax) {           //Função de ler a jogada do usuário
     do {
         printf("Digite o numero da linha: ");
