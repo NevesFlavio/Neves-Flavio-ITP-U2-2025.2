@@ -49,6 +49,18 @@ void gerarMinas(int lin, int col, int minas[lin][col], int qtd) {           //Fu
     }
 }
 
+int contarMinasAdjacentes(int i, int j, int lin, int col, int minas[lin][col]) { 
+    int cont = 0;
+    for (int x = i - 1; x <= i + 1; x++) {
+        for (int y = j - 1; y <= j + 1; y++) {
+            if (x >= 1 && x < lin && y >= 1 && y < col && minas[x][y] == 1) {
+                cont++;
+            }
+        }
+    }
+    return cont;
+}
+
 void lerJogada(int *linha, int *coluna, int linMax, int colMax) {           //Função de ler a jogada do usuário
     do {
         printf("Digite o numero da linha: ");
