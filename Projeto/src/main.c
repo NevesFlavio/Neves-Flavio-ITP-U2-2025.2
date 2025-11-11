@@ -86,7 +86,7 @@ int revelarCelula(int i, int j, int lin, int col, char mapa[lin][col], int minas
     }
 }
 
-void lerJogada(int *linha, int *coluna, int linMax, int colMax) {           //Função de ler a jogada do usuário
+void lerJogada(int *linha, int *coluna,char *acao, int linMax, int colMax) {           //Função de ler a jogada do usuário
     do {
         printf("Digite o numero da linha: ");
         scanf("%d", linha);
@@ -97,7 +97,17 @@ void lerJogada(int *linha, int *coluna, int linMax, int colMax) {           //Fu
             printf("Jogada invalida. Tente novamente.\n");
         }
     } while (*linha < 1 || *linha > linMax || *coluna < 1 || *coluna > colMax);
-}                                 
+}
+
+void colocarBandeira(int lin, int col, int i, int j, char mapa[lin][col]) {                    //Função de colocar bandeira
+    if (mapa[i][j] == '-') {
+        mapa[i][j] = 'B';
+    } else if (mapa[i][j] == 'B') {
+        mapa[i][j] = '-';
+    }else {
+        printf("Nao pode colocar bandeira em uma celula ja revelada.\n");
+    }
+}
 
 int main() {
     
@@ -138,13 +148,32 @@ do                                                                          //Es
     char mapa[lin][col];
     int minas[lin][col];
     int qtdMinas = (opcao == 1 ? 10 : (opcao == 2 ? 40 : 99));
-    int linhaJog, colunaJog;                                                      //Quantidade de minas para cada dificuldade - 10, 40, 99.
+    
+                                                          //Quantidade de minas para cada dificuldade - 10, 40, 99.
 
     inicializarJogo(lin, col, mapa);
     colocarMinas(lin, col, minas);
     gerarMinas(lin, col, minas, qtdMinas);                                  //Chamada da função de gerar minas, 10;
+    
+    printf("\n Campo minado vai comecar! \n");
+    
     mostrarJogo(lin, col, mapa);
-    lerJogada(&linhaJog, &colunaJog, lin, col);
+    while (1) {
+        int linhaJog, colunaJog;
+        char acao;
+        lerJogada(&linhaJog, &colunaJog, &acao, lin, col);
+
+        if (acao == 'A'|| acao == 'a' ) {
+            revelarCelula(linhaJog, colunaJog, lin, col, mapa, minas);
+            mostrarJogo(lin, col, mapa);
+        } else if (acao == 'B' || acao == 'b') {
+            colocarBandeira(lin, col, linhaJog, colunaJog, mapa);
+            mostrarJogo(lin, col, mapa);
+        } else {
+            printf("Opcao invalida. Tente novamente usando A ou B.\n");
+        }
+    }
+    
 
     return 0;
     
