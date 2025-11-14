@@ -88,7 +88,7 @@ int revelarCelula(int i, int j, int lin, int col, char mapa[lin][col], int minas
 
 void lerJogada(int *linha, int *coluna,char *acao, int linMax, int colMax) {           //Função de ler a jogada do usuário
     do {
-        printf("Digite A para revelar uma celula não revelada; B para colocar uma bandeira; S para sair; R para reiniciar: ");
+        printf("Digite A para revelar uma celula nao revelada; B para colocar uma bandeira; S para sair; R para reiniciar: ");
         scanf(" %c", acao);
 
         if (*acao == 'S' || *acao == 's' || *acao == 'R' || *acao == 'r') {
@@ -171,14 +171,32 @@ do                                                                          //Es
         char acao;
         lerJogada(&linhaJog, &colunaJog, &acao, lin, col);
 
+        if (acao == 'S' || acao == 's') {
+            printf("Obrigado por jogar!\n");
+            break;
+        }
+
+        if (acao == 'R' || acao == 'r') {
+          printf("Reiniciando o jogo...\n");
+          main();
+          return 0;
+        }
+
         if (acao == 'A'|| acao == 'a' ) {
+            int morreu = revelarCelula(linhaJog, colunaJog, lin, col, mapa, minas);
+            if (morreu == 1) {
+                mostrarJogo(lin, col, mapa);
+                printf("BOOOOOOOOOOM! Voce morreu!\n");
+                break;
+            }
             revelarCelula(linhaJog, colunaJog, lin, col, mapa, minas);
             mostrarJogo(lin, col, mapa);
+
         } else if (acao == 'B' || acao == 'b') {
             colocarBandeira(lin, col, linhaJog, colunaJog, mapa);
             mostrarJogo(lin, col, mapa);
         } else {
-            printf("Opcao invalida. Tente novamente usando A ou B.\n");
+            printf("Opcao invalida. Tente novamente usando A, B, R ou S.\n");
         }
     }
     
