@@ -70,7 +70,7 @@ int revelarCelula(int i, int j, int lin, int col, char mapa[lin][col], int minas
     }
     if (minas[i][j] == 1) {
         mapa[i][j] = '*';
-        return;
+        return 1;
     }
     int adj = contarMinasAdjacentes(i, j, lin, col, minas);
     mapa[i][j] = adj + '0';
@@ -88,8 +88,16 @@ int revelarCelula(int i, int j, int lin, int col, char mapa[lin][col], int minas
 
 void lerJogada(int *linha, int *coluna,char *acao, int linMax, int colMax) {           //Função de ler a jogada do usuário
     do {
+        printf("Digite A para revelar uma celula não revelada; B para colocar uma bandeira; S para sair; R para reiniciar: ");
+        scanf(" %c", acao);
+
+        if (*acao == 'S' || *acao == 's' || *acao == 'R' || *acao == 'r') {
+            break;
+        }
+       
         printf("Digite o numero da linha: ");
         scanf("%d", linha);
+        
         printf("Digite o numero da coluna: ");
         scanf("%d", coluna);
 
