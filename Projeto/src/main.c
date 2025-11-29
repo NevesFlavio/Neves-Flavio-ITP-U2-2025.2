@@ -27,7 +27,7 @@ void mostrarJogo(int lin, int col, char mapa[lin][col]) {                   //Fu
     }
 }
 
-void colocarMinas(int lin, int col, int minas[lin][col]) {                //Função de colocar as minas - em construção
+void colocarMinas(int lin, int col, int minas[lin][col]) {                //Função de colocar as minas
     for (int i = 1; i < lin; i++) {
         for (int j = 1; j < col; j++) {
             minas[i][j] = 0; 
@@ -88,6 +88,7 @@ int revelarCelula(int i, int j, int lin, int col, char mapa[lin][col], int minas
 
 void lerJogada(int *linha, int *coluna,char *acao, int linMax, int colMax) {           //Função de ler a jogada do usuário
     do {
+        printf("\n");
         printf("Digite A para revelar uma celula nao revelada; B para colocar uma bandeira; S para sair; R para reiniciar: ");
         scanf(" %c", acao);
 
@@ -157,13 +158,14 @@ do                                                                          //Es
     int minas[lin][col];
     int qtdMinas = (opcao == 1 ? 10 : (opcao == 2 ? 40 : 99));
     
-                                                          //Quantidade de minas para cada dificuldade - 10, 40, 99.
+ //Quantidade de minas para cada dificuldade - 10, 40, 99.
 
     inicializarJogo(lin, col, mapa);
     colocarMinas(lin, col, minas);
     gerarMinas(lin, col, minas, qtdMinas);                                  //Chamada da função de gerar minas, 10;
     
     printf("\n Campo minado vai comecar! \n");
+    printf("\n");
     
     mostrarJogo(lin, col, mapa);
     while (1) {
