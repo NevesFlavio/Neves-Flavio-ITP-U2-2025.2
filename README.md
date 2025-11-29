@@ -9,18 +9,27 @@
 - `README.md`: Este arquivo
 ## 🚀 Projeto: Jogo Campo Minado (Versão Texto)
 **Descrição**: Este projeto se propõe a fazer um jogo estilo Campo Minado, um clássico dos primeiros Sistemas Operacionais Windows, mas utilizando a linguagem '.c'. O layout será inteiramente construído por caracteres e visualizado através de um Terminal, via CLI.
-- **Repositório**: https://github.com/NevesFlavio/Neves-Flavio-itp-u1-2025-2
-- **Vídeo de Demonstração**: https://youtu.be/znbHU01J10I
+- **Repositório - 1ª Unidade**: https://github.com/NevesFlavio/Neves-Flavio-itp-u1-2025-2
+- **Repositório - 2ª Unidade**: https://github.com/NevesFlavio/Neves-Flavio-ITP-U2-2025.2
+- **Vídeos de Demonstração**: 
+- 1ª Unidade: https://youtu.be/znbHU01J10I
+- 2ª Unidade: https://youtu.be/XqtpqRcva40
 ### Funcionalidades Implementadas:
 - Inicializar o jogo;
 - Mostrar o mapa na tela;
-- Colocar minas no mapa;
+- Colocar minas no mapa aleatoriamente;
+- Contar as minas adjacentes às células;
+- Revelar as células selecionadas e as adjacentes sem mina ao redor;
+- Ler a jogada do usuário;
+- Colocar bandeira, reiniciar o jogo e sair;
 - Menu interativo com tratamento de dados.
-### Conceitos da U1 Aplicados:
+### Conceitos das Unidades 1 e 2 Aplicados:
 - Estruturas condicionais: Menu de escolha da dificuldade.
 - Estruturas de repetição: Inicialização e apresentação do mapa do jogo;
 - Vetores: Na elaboração do mapa;
-- Funções: Três funções (Inicializar o jogo, mostrar na tela e colocar as minas).
+- Ponteiros: função lerJogada;
+- Manipulação de strings.
+- Funções: diversas funções (Inicializar o jogo, mostrar na tela, colocar as minas, ler jogadas...).
 ## 📚 Listas de Exercícios
 ### Semana 2 - Variáveis, Tipos e Operadores:
 - ✅ Problema 1: Calculadora de IMC
@@ -54,12 +63,18 @@
 - ✅ Problema 3: A construção da ponte
 - ✅ Problema 4: Em busca do tesouro perdido
 - ### Semana 7 - Strings:
+- ✅ Problema 1: Campo Minado em 1D
+- ✅ Problema 2: Detecção de Placas
+- ✅ Problema 3: OpenMeet
 - ### Semana 8 - Repetições Aninhadas:
+- ✅ Problema 1: Estou com sorte (ou não)
+- ✅ Problema 2: Os dias mais chuvosos
+- ✅ Problema 3: Esse sim é piloto
 - ### Semana 9 - Matrizes:
 - ### Semana 10 - Ponteiros e Alocação.
 
 ## 🎯 Principais Aprendizados
-A noção da utilização de funções para cada 'demanda', a forma de implementação das condicionais para possibilitar escolhas por parte do usuário, a organização do código de maneira a facilitar futuras alterações e a construção de um projeto que se baseia no alicerce organizadamente bem elaborado.
+A noção da utilização de funções para cada 'demanda', a forma de implementação das condicionais para possibilitar escolhas por parte do usuário, a implementação de gerar minas de maneira randomizada, a organização do código de maneira a facilitar futuras alterações e a construção de um projeto que se baseia no alicerce organizadamente bem elaborado.
 ## 🔧 Ambiente de Desenvolvimento
 - **SO**: Windows 11
 - **Compilador**: GCC versão 10.3.0
