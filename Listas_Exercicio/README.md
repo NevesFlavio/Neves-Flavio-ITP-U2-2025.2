@@ -1,4 +1,4 @@
-# Listas da Primeira Unidade
+# Listas da Primeira e Segunda Unidades
 
 ## Projeto desenvolvido no Sistema Operacional Windows 11
 
