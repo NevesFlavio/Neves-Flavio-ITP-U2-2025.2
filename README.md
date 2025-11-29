@@ -6,6 +6,8 @@
 ## 📁 Estrutura do Projeto
 - `Projeto/`: Projeto principal da unidade
 - `Listas_Exercicio/`: Soluções das listas de exercícios
+- `Relatorios/`: Relatórios Técnicos - 1ª e 2ª Unidades
+- `Videos/`: Videos demonstração - 1ª e 2ª Unidades
 - `README.md`: Este arquivo
 ## 🚀 Projeto: Jogo Campo Minado (Versão Texto)
 **Descrição**: Este projeto se propõe a fazer um jogo estilo Campo Minado, um clássico dos primeiros Sistemas Operacionais Windows, mas utilizando a linguagem '.c'. O layout será inteiramente construído por caracteres e visualizado através de um Terminal, via CLI.
